@@ -42,13 +42,11 @@ public class InsertMany {
         System.out.println("Inserting data to DB Started...");
 
         try  {
-            MongoCollection<Document> collection = mongoClient.getDatabase("local").getCollection("test");
+            MongoCollection<Document> collection = mongoClient.getDatabase(Properties.databaseName).getCollection(Properties.collectionName);
             List<Document> movieList = new ArrayList<Document>();
 
             for(int i = 0; i < Properties.batchSize; i++) {
-                // change to actual doc
                 movieList.add(Document.parse(Data.data));
-                // movieList.add(new Document().append("title", "Short Circuit 3"));
             }
 
             try {
