@@ -1,0 +1,128 @@
+{
+    "_id" : ObjectId("6303a88e67dbeb05f6977b87"),
+    "documentId" : "0eac26fd-a915-4a87-a04f-852de267056e",
+    "lhs" : {
+        "documentNumbers" : [
+            "CN/21/250222/01"
+        ],
+        "crossLinkedDocumentTypes" : [
+            "CREDIT"
+        ],
+        "multiDocumentIds" : [
+            "ac864bac-b01f-4dfc-b8ea-31ee127dc19f_CDN_CN/21/250222/01_06AADCP7081J1Z6_29AADCP7081J1ZY_2021"
+        ],
+        "documentNumber" : "CN/21/250222/01",
+        "cpGstin" : "06AADCP7081J1Z6",
+        "myGstin" : "29AADCP7081J1ZY",
+        "rp" : "042022",
+        "pos" : "KARNATAKA",
+        "cpName" : "PUMA SPORTS INDIA PVT LTD.",
+        "cpPan" : "AADCP7081J",
+        "myPan" : "AADCP7081J",
+        "cpTradeName" : "PUMA SPORTS INDIA PVT LTD.",
+        "gstinStatus" : null,
+        "docDate" : ISODate("2022-02-25T00:00:00.000Z"),
+        "fiscalYear" : "2021",
+        "originalDocNumber" : "",
+        "ownerId" : "ac864bac-b01f-4dfc-b8ea-31ee127dc19f",
+        "originalDocDate" : null,
+        "cpGstinCancellationDate" : null,
+        "cfs" : "N",
+        "cpFilingStatus3b" : "",
+        "g1FilingDate" : "",
+        "g1FilingRp" : "",
+        "sectionName" : "CDN",
+        "documentType" : "CREDIT",
+        "source" : "USER",
+        "reverseChargeApplicable" : false,
+        "returnPeriod" : "042022",
+        "documentId" : "ac864bac-b01f-4dfc-b8ea-31ee127dc19f_CDN_CN/21/250222/01_06AADCP7081J1Z6_29AADCP7081J1ZY_2021",
+        "igst" : -70804.53,
+        "cgst" : 0,
+        "sgst" : 0,
+        "cess" : 0,
+        "totalValue" : -749225.31,
+        "taxableValue" : -678420.78,
+        "taxValue" : -70804.53,
+        "customFields" : [
+            {
+                "label" : "Custom1",
+                "value" : "qwerty",
+                "slug" : "7023dfdb-a96c-4bf6-93d6-4a0b46ce24e1__PURCHASE__ad2bf16a-9103-4fa0-b486-4e7c18d785eb"
+            },
+            {
+                "label" : "Custom2",
+                "value" : "testing1",
+                "slug" : "7023dfdb-a96c-4bf6-93d6-4a0b46ce24e1__PURCHASE__1d49d8ff-7343-4e43-9dbc-ce001e2b5eb0"
+            }
+        ],
+        "remark" : "Test Bulk Remark",
+        "irn" : null,
+        "irnGenerationDate" : null,
+        "itcEligible" : null,
+        "reason" : null,
+        "itcClaimEligibility" : "ELIGIBLE",
+        "itcDetails" : {
+            "cessClaimableItc" : 0,
+            "cessTotalItc" : 0,
+            "cgstClaimableItc" : 0,
+            "cgstTotalItc" : 0,
+            "igstClaimableItc" : -70804.53,
+            "igstTotalItc" : -70804.53,
+            "sgstClaimableItc" : 0,
+            "sgstTotalItc" : 0
+        },
+        "generationSource" : "",
+        "paymentAction" : {
+            "globalAction" : "PAY_FULL_AMOUNT",
+            "vendorLevelAction" : null,
+            "documentLevelAction" : null,
+            "action" : "PAY_FULL_AMOUNT"
+        },
+        "dueDate" : null,
+        "vendorCode" : "",
+        "voucherNo" : "",
+        "documentSource" : "PURCHASE"
+    },
+    "rhs" : null,
+    "ruleId" : null,
+    "metadata" : {
+        "itcAction" : "NO_ACTION",
+        "gst3BClaimMonth" : null,
+        "igstItc" : null,
+        "cgstItc" : null,
+        "sgstItc" : null,
+        "cessItc" : null,
+        "totalItc" : null,
+        "taxableValue" : null,
+        "supplierName" : "PUMA SPORTS INDIA PVT LTD.",
+        "supplierGstin" : "06AADCP7081J1Z6",
+        "cpPan" : "AADCP7081J",
+        "myGstin" : "29AADCP7081J1ZY",
+        "myPan" : "AADCP7081J",
+        "matchType" : "missing_rhs",
+        "linkType" : null,
+        "taxDiff" : -70804.53,
+        "misMatchFields" : [],
+        "misMatchedFields" : {},
+        "supplierFilingStatus" : "missing_rhs",
+        "matchScope" : null,
+        "documentType" : "CREDIT",
+        "remark" : "Test Bulk Remark",
+        "reconRuleId" : null,
+        "matchingRequestType" : "MAX_ITC_2A_PR",
+        "crossLinkedDocumentTypes" : [
+            "CREDIT"
+        ]
+    },
+    "lhsChildRows" : null,
+    "rhsChildRows" : null,
+    "lhsId" : "ac864bac-b01f-4dfc-b8ea-31ee127dc19f_CDN_CN/21/250222/01_06AADCP7081J1Z6_29AADCP7081J1ZY_2021",
+    "rhsId" : null,
+    "matching_rule_id" : null,
+    "ruleDescription" : null,
+    "ruleType" : null,
+    "entity_type" : "cdn",
+    "matchAction" : "NO_ACTION",
+    "matchingTaskId" : "ab364463-2014-4f37-80b3-bff572d86fca"
+}
