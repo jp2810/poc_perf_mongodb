@@ -27,13 +27,13 @@ public class InsertMany {
 
             long startTime = System.currentTimeMillis();
             long durationInMills = properties.durationInSec * 1000;
+            List<Document> docList = new ArrayList<Document>();
+
+            for(int i = 0; i < properties.batchSize; i++) {
+                docList.add(Document.parse(Data.data));
+            }
             while (durationInMills > (System.currentTimeMillis() - startTime)) {
                 MongoCollection<Document> collection = mongoClient.getDatabase(properties.databaseName).getCollection(properties.collectionName);
-                List<Document> docList = new ArrayList<Document>();
-
-                for(int i = 0; i < properties.batchSize; i++) {
-                    docList.add(Document.parse(Data.data));
-                }
 
                 try {
                     collection.insertMany(docList, new InsertManyOptions().ordered(false));
