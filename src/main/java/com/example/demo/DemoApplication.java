@@ -1,42 +1,56 @@
 package com.example.demo;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.springframework.boot.SpringApplication;
+import lombok.SneakyThrows;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.mongodb.client.MongoClients;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 
 @SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-		System.out.println("Hello WOrld");
+		// SpringApplication.run(DemoApplication.class, args);
 
-		String uri = Properties.dbUrl;
-        MongoClient mongoClient = MongoClients.create(uri);
+		System.out.printf("Running with args %s", Arrays.toString(args));
 
-		InsertMany insertMany = new InsertMany(5);
+		String fileName = args.length > 0 ? args[0] : "properties.json";
+        Properties properties = getConfig(fileName);
+		System.out.println("Application running with following configuration - ");
+		properties.print();
 
-		ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
+        MongoClient mongoClient = MongoClients.create(properties.dbUrl);
 
-        for(int i = 0; i < Properties.concurrency; i++) {
+		InsertMany insertMany = new InsertMany();
+
+		ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(properties.concurrency);
+
+        for(int i = 0; i < properties.concurrency; i++) {
             executor.submit(() -> {
-                insertMany.insertManyToDb(mongoClient);
+                insertMany.insertManyToDb(properties, mongoClient);
                 return null;
             });
         }
-
-		try {
-			executor.awaitTermination(10, TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
+
+	@SneakyThrows
+	private static Properties getConfig(String fileName) {
+		File configFile = new File(fileName);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+		return mapper.readValue(configFile, Properties.class);
+    }
 
 }

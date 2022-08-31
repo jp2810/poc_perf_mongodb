@@ -1,0 +1,7 @@
+{
+    "concurrency": 5,
+    "batchSize": 25000,
+    "dbUrl": "mongodb://localhost:27017/mars_dev?retryWrites=true&w=majority",
+    "databaseName": "mars_dev",
+    "collectionName": "matchingLive"
+}

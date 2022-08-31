@@ -1,10 +1,49 @@
 package com.example.demo;
 
 public class Properties {
-    final static int concurrency = 5;
-    final static int batchSize = 25000;
-    final static String dbUrl = "mongodb://cluster0-shard-00-01.k1ulb.mongodb.net:27017";
-    final static String databaseName = "mars-qa";
-    final static String collectionName = "matchingLive";
 
+    int concurrency;
+    int batchSize;
+    String dbUrl;
+    String databaseName;
+    String collectionName;
+    
+    public int getConcurrency() {
+        return concurrency;
+    }
+    public void setConcurrency(int concurrency) {
+        this.concurrency = concurrency;
+    }
+    public int getBatchSize() {
+        return batchSize;
+    }
+    public void setBatchSize(int batchSize) {
+        this.batchSize = batchSize;
+    }
+    public String getDbUrl() {
+        return dbUrl;
+    }
+    public void setDbUrl(String dbUrl) {
+        this.dbUrl = dbUrl;
+    }
+    public String getDatabaseName() {
+        return databaseName;
+    }
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
+    }
+    public String getCollectionName() {
+        return collectionName;
+    }
+    public void setCollectionName(String collectionName) {
+        this.collectionName = collectionName;
+    }
+
+    public void print() {
+        System.out.println("\nConcurrency: " + this.concurrency 
+            + "\nBatch Size: " + this.batchSize 
+            + "\nDB Url: " + this.dbUrl
+            + "\nDatabase Name: " + this.databaseName
+            + "\nCollection Name" + this.collectionName);
+    }
 }

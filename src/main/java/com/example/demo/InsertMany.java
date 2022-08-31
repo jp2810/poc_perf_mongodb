@@ -20,32 +20,14 @@ public class InsertMany {
 
     MongoClient mongoClient;
 
-    public InsertMany(int concurrency) {
-        
-    }
-
-    public static void main(String[] args) {
-        // TODO: create mongoDB connection threadpool
-        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(5);
-
-        for(int i = 0; i < 5; i++) {
-            executor.submit(() -> {
-                // insertManyToDb();
-                return null;
-            });
-        }
-
-        // ExecutorService pool = Executors.newFixedThreadPool(4);
-    }
-
-    public void insertManyToDb(MongoClient mongoClient) {
+    public void insertManyToDb(Properties properties, MongoClient mongoClient) {
         System.out.println("Inserting data to DB Started...");
 
         try  {
-            MongoCollection<Document> collection = mongoClient.getDatabase(Properties.databaseName).getCollection(Properties.collectionName);
+            MongoCollection<Document> collection = mongoClient.getDatabase(properties.databaseName).getCollection(properties.collectionName);
             List<Document> movieList = new ArrayList<Document>();
 
-            for(int i = 0; i < Properties.batchSize; i++) {
+            for(int i = 0; i < properties.batchSize; i++) {
                 movieList.add(Document.parse(Data.data));
             }
 
