@@ -24,17 +24,22 @@ public class InsertMany {
         System.out.println("Inserting data to DB Started...");
 
         try  {
-            MongoCollection<Document> collection = mongoClient.getDatabase(properties.databaseName).getCollection(properties.collectionName);
-            List<Document> movieList = new ArrayList<Document>();
 
-            for(int i = 0; i < properties.batchSize; i++) {
-                movieList.add(Document.parse(Data.data));
-            }
+            long startTime = System.currentTimeMillis();
+            long durationInMills = properties.durationInSec * 1000;
+            while (durationInMills > (System.currentTimeMillis() - startTime)) {
+                MongoCollection<Document> collection = mongoClient.getDatabase(properties.databaseName).getCollection(properties.collectionName);
+                List<Document> docList = new ArrayList<Document>();
 
-            try {
-                collection.insertMany(movieList, new InsertManyOptions().ordered(false));
-            } catch (MongoException me) {
-                System.err.println("Unable to insert due to an error: " + me);
+                for(int i = 0; i < properties.batchSize; i++) {
+                    docList.add(Document.parse(Data.data));
+                }
+
+                try {
+                    collection.insertMany(docList, new InsertManyOptions().ordered(false));
+                } catch (MongoException me) {
+                    System.err.println("Unable to insert due to an error: " + me);
+                }
             }
         } catch(Exception e) {
             System.out.println(e);

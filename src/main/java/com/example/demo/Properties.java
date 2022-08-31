@@ -7,7 +7,15 @@ public class Properties {
     String dbUrl;
     String databaseName;
     String collectionName;
+    long durationInSec;
     
+    public long getDurationInSec() {
+        return durationInSec;
+    }
+    public void setDurationInSec(long durationInSec) {
+        this.durationInSec = durationInSec;
+    }
+
     public int getConcurrency() {
         return concurrency;
     }
@@ -44,6 +52,7 @@ public class Properties {
             + "\nBatch Size: " + this.batchSize 
             + "\nDB Url: " + this.dbUrl
             + "\nDatabase Name: " + this.databaseName
-            + "\nCollection Name" + this.collectionName);
+            + "\nCollection Name: " + this.collectionName
+            + "\nDuration: " + this.durationInSec + " seconds");
     }
 }
